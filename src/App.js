@@ -7,12 +7,12 @@ import ApolloClient from 'apollo-boost';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomeView from './views/HomeView';
 import RepoDetailView from './views/RepoDetailView';
-import constants from 'constants';
+import {constants} from './constants';
 
 const client = new ApolloClient({
     uri: 'https://api.github.com/graphql',
     headers: {
-        Authorization: 'bearer ' + constants.userId
+        Authorization: 'bearer '
     }
 });
 
