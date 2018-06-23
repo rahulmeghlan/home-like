@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
 import PinnedRepoView from './PinnedRepoView'
+import UserProfileInfoView from './UserProfileInfoView';
 
 const query = gql`{
   viewer {
@@ -29,7 +30,7 @@ class HomeView extends React.Component {
         return (
             <div>
                 <div className='col-3 float-left'>
-
+                    <UserProfileInfoView/>
                 </div>
                 <div className='col-9 float-left'>
                     <div className='pinned-repos-list'>

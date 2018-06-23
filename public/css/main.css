@@ -48,3 +48,24 @@ a {
   border: 1px solid #d1d5da;
   border-radius: 3px;
   margin-bottom: 16px; }
+
+.avatar {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
+  border-radius: 3px;
+  width: 233px; }
+
+.user-name {
+  font-size: 26px;
+  line-height: 30px;
+  margin-bottom: 0; }
+
+.login-name {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 5px 0;
+  color: #666; }
