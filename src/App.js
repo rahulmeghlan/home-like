@@ -12,7 +12,7 @@ import {constants} from './constants';
 const client = new ApolloClient({
     uri: 'https://api.github.com/graphql',
     headers: {
-        Authorization: 'bearer 40d1db69fe5e04e54edefb0fa377a6eae8edf47b'
+        Authorization: 'bearer 4dee21d1025f5cd61d3723f0175a65d3acee0bab'
     }
 });
 
