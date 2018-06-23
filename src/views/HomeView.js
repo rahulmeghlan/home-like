@@ -27,12 +27,17 @@ class HomeView extends React.Component {
 
         return (
             <div>
-                {data.viewer.repositories.edges.map((item, index) => (
-                    <div>
-                        <p>{item.node.name}</p>
-                        <p>{item.node.description}</p>
-                    </div>
-                ))}
+                <div className='col-3 float-left'>
+
+                </div>
+                <div className='col-9 float-left'>
+                    {data.viewer.repositories.edges.map((item, index) => (
+                        <div>
+                            <p>{item.node.name}</p>
+                            <p>{item.node.description}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         )
     }

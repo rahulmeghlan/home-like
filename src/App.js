@@ -12,7 +12,7 @@ import {constants} from './constants';
 const client = new ApolloClient({
     uri: 'https://api.github.com/graphql',
     headers: {
-        Authorization: 'bearer '
+        Authorization: 'bearer 40d1db69fe5e04e54edefb0fa377a6eae8edf47b'
     }
 });
 
@@ -21,7 +21,7 @@ class App extends Component {
         return (
             <ApolloProvider client={client}>
                 <Router>
-                    <div>
+                    <div className='container-lg clearfix'>
                         <Route exact path="/" component={HomeView}/>
                         <Switch>
                             <Route exact path="/:reponame" component={RepoDetailView}/>
