@@ -1,9 +1,10 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
+import constants from './../constants';
 
 const query = gql`query {
-  user(login: "rahulmeghlan"){
+  user(login: ${constants.username}){
     avatarUrl, name, login
   }
 }`;
