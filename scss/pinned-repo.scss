@@ -1,0 +1,11 @@
+.pinned-repos-list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pinned-repo-item {
+  display: flex;
+  width: 359px;
+}
