@@ -17,7 +17,7 @@ class UserProfileInfoView extends React.Component {
             return <div>Loading...</div>
         }
         return <div>
-            <a href="/"><img className="avatar" src={data.user.avatarUrl}/> </a>
+            <a href="/"><img className="avatar" alt={data.user.name} src={data.user.avatarUrl}/> </a>
             <p className='user-name'>{data.user.name}</p>
             <p className='login-name'>{data.user.login}</p>
         </div>;

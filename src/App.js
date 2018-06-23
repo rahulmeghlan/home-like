@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import {
-    ApolloProvider,
-    createBatchingNetworkInterface
-} from 'react-apollo';
+import {ApolloProvider} from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomeView from './views/HomeView';
