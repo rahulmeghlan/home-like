@@ -14,7 +14,8 @@ body {
 .container-lg {
   max-width: 1012px;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  margin-top: 24px; }
 
 .clearfix::before {
   display: table;
@@ -27,3 +28,23 @@ body {
 
 .float-left {
   float: left; }
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer; }
+
+.pinned-repos-list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.pinned-repo-item {
+  display: flex;
+  width: 359px;
+  padding: 16px;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  margin-bottom: 16px; }

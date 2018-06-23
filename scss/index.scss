@@ -19,6 +19,7 @@ body {
   max-width: 1012px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 24px;
 }
 
 .clearfix::before {
@@ -34,4 +35,11 @@ body {
 
 .float-left {
   float: left;
+}
+
+a {
+  color: $anchor;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
 }

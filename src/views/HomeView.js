@@ -32,9 +32,11 @@ class HomeView extends React.Component {
 
                 </div>
                 <div className='col-9 float-left'>
-                    {data.viewer.repositories.edges.map((item, index) => (
-                        <PinnedRepoView key={index} info={item.node}/>
-                    ))}
+                    <div className='pinned-repos-list'>
+                        {data.viewer.repositories.edges.map((item, index) => (
+                            <PinnedRepoView key={index} info={item.node}/>
+                        ))}
+                    </div>
                 </div>
             </div>
         )

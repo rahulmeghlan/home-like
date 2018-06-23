@@ -8,4 +8,8 @@
 .pinned-repo-item {
   display: flex;
   width: 359px;
+  padding: 16px;
+  border: 1px solid $border-color;
+  border-radius: 3px;
+  margin-bottom: 16px;
 }
