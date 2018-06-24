@@ -9,13 +9,13 @@ body {
   padding-bottom: 12px;
   color: rgba(255, 255, 255, 0.75);
   background-color: #24292e;
-  min-height: 60px; }
+  min-height: 60px;
+  margin-bottom: 20px; }
 
 .container-lg {
   max-width: 1012px;
   margin-right: auto;
-  margin-left: auto;
-  margin-top: 24px; }
+  margin-left: auto; }
 
 .clearfix::before {
   display: table;
@@ -73,10 +73,10 @@ a {
 .pagehead {
   padding-bottom: 0;
   background-color: #fafbfc;
-  border-bottom: 1px solid #e1e4e8; }
+  border-bottom: 1px solid #e1e4e8;
+  margin-bottom: 60px; }
 
 .repohead-details-container {
-  margin-bottom: 20px;
   width: 980px;
   margin-right: auto;
   margin-left: auto; }
@@ -95,3 +95,44 @@ a {
   z-index: 31;
   float: right;
   margin: 0; }
+
+.container {
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto; }
+
+.commit-tease {
+  padding: 10px;
+  font-size: 13px;
+  line-height: 20px;
+  background-color: #f1f8ff;
+  border: 1px solid #c8e1ff;
+  border-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  min-height: 30px; }
+
+table.files {
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  border: 1px solid #dfe2e5;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top: 0; }
+  table.files tr:first-child td {
+    border-top: 0; }
+  table.files td {
+    border-top: 1px solid #eaecef; }
+    table.files td.content {
+      max-width: 180px;
+      padding: 6px 3px;
+      line-height: 20px; }
+    table.files td.icon {
+      width: 17px;
+      padding-right: 2px;
+      padding-left: 10px;
+      color: rgba(3, 47, 98, 0.55); }
+      table.files td.icon .octicon-file-directory {
+        color: rgba(3, 47, 98, 0.5); }

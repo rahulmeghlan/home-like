@@ -1,6 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import {ApolloConsumer} from 'react-apollo';
+import Octicon from 'react-octicon'
 
 export default class RepoDetailView extends React.Component {
     constructor(props) {
@@ -54,10 +55,21 @@ export default class RepoDetailView extends React.Component {
                         </div>
                     </div>
                     {this.setRepoDetailDep(client)}
-                    {this.state.detail && this.state.detail.map((item, index) => (
-                        <div key={index}>{item.name} ==== {item.type}</div>
-                    ))}
-
+                    <div className='container'>
+                        <div className='commit-tease'></div>
+                        <table className='files'>
+                            <tbody>
+                            {this.state.detail && this.state.detail.map((item, index) => (
+                                <tr key={index}>
+                                    <td className='icon'>
+                                        <Octicon name={item.type === 'tree' ? 'file-directory' : 'file'}/>
+                                    </td>
+                                    <td className={index === 0 ? "first-child content" : "content"}>{item.name}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             )}
         </ApolloConsumer>

@@ -13,13 +13,13 @@ body {
   color: rgba(255, 255, 255, 0.75);
   background-color: $header-bg;
   min-height: 60px;
+  margin-bottom: 20px;
 }
 
 .container-lg {
   max-width: 1012px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 24px;
 }
 
 .clearfix::before {
