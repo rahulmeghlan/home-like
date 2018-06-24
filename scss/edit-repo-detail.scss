@@ -1,0 +1,49 @@
+.repository-meta {
+  margin: 0 0 20px;
+  clear: both;
+  font-size: 16px;
+  color: $h1;
+
+  .repository-meta-content {
+    display: inline-block;
+  }
+
+  .repo-description-field {
+    width: 465px;
+  }
+
+  .repo-website-field {
+    width: 300px;
+  }
+
+  &.open {
+    .edit-repository-meta {
+      display: block;
+    }
+    .description-info {
+      display: none;
+    }
+  }
+}
+
+.edit-repository-meta {
+  display: none;
+  margin-bottom: 5px;
+  font-size: 13px;
+
+  .field {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: $header-bg;
+  }
+
+  .btn {
+    margin: 0 6px;
+  }
+}

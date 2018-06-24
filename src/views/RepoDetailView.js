@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {ApolloConsumer} from 'react-apollo';
 import Octicon from 'react-octicon'
+import EditRepoDetailView from './EditRepoDetailView';
 
 export default class RepoDetailView extends React.Component {
     constructor(props) {
@@ -63,6 +64,7 @@ export default class RepoDetailView extends React.Component {
                     </div>
                     {this.setRepoDetailDep(client)}
                     <div className='container'>
+                        <EditRepoDetailView description={this.state.description}/>
                         <div className='commit-tease'></div>
                         <table className='files'>
                             <tbody>
