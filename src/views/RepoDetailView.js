@@ -6,13 +6,14 @@ import Octicon from 'react-octicon'
 export default class RepoDetailView extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {detail: null};
+        this.state = {detail: null, description: undefined, nameWithOwner: undefined};
     }
 
     setRepoDetailDep(client) {
         this.query = gql`{
           viewer {
             repository(name: "${this.props.match.params.reponame}") {
+              description, nameWithOwner
               object(expression: "master:") {
               ... on Tree{
                 entries{
@@ -36,8 +37,14 @@ export default class RepoDetailView extends React.Component {
 
     componentDidMount() {
         this.getRepoDetail(this.client, this.query).then((res) => {
+            let repositoryInfo = res.data.viewer.repository;
             this.setState({
-                detail: res.data.viewer.repository.object ? res.data.viewer.repository.object.entries : []
+                detail: repositoryInfo.object ? repositoryInfo.object.entries : [{
+                    name: '',
+                    type: ''
+                }],
+                description: repositoryInfo.description,
+                nameWithOwner: repositoryInfo.nameWithOwner
             });
         })
     }
@@ -51,7 +58,7 @@ export default class RepoDetailView extends React.Component {
                             <ul className='pagehead-actions'>
 
                             </ul>
-                            <h1 className='public'>{this.props.match.params.reponame}</h1>
+                            <h1 className='public'>{this.state.nameWithOwner}</h1>
                         </div>
                     </div>
                     {this.setRepoDetailDep(client)}
@@ -62,7 +69,8 @@ export default class RepoDetailView extends React.Component {
                             {this.state.detail && this.state.detail.map((item, index) => (
                                 <tr key={index}>
                                     <td className='icon'>
-                                        <Octicon name={item.type === 'tree' ? 'file-directory' : 'file'}/>
+                                        <Octicon
+                                            name={item.type === 'tree' ? 'file-directory' : item.type === 'blob' ? 'file' : ''}/>
                                     </td>
                                     <td className={index === 0 ? "first-child content" : "content"}>{item.name}</td>
                                 </tr>

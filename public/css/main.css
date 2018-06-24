@@ -74,7 +74,8 @@ a {
   padding-bottom: 0;
   background-color: #fafbfc;
   border-bottom: 1px solid #e1e4e8;
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  margin-top: -20px; }
 
 .repohead-details-container {
   width: 980px;
