@@ -74,7 +74,7 @@ export default class RepoDetailView extends React.Component {
                                 <li>
                                     <ToggleStarView
                                         count={this.state.starCount}
-                                        status={this.state.isSelfStarred}/>
+                                        status={this.state.starStatus}/>
                                 </li>
                             </ul>
                             <h1 className='public'>{this.state.nameWithOwner}</h1>

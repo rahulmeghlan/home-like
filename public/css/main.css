@@ -202,7 +202,8 @@ a {
     color: #24292e;
     list-style-type: none; }
     .repohead .pagehead-actions > li .octicon {
-      vertical-align: text-top; }
+      vertical-align: text-top;
+      margin-right: 5px; }
 
 .container {
   width: 980px;
