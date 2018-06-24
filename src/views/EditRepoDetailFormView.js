@@ -8,7 +8,6 @@ export default class EditRepoDetailFormView extends React.Component {
                 <input type="text" id="repo_description"
                        className="form-control input-contrast repo-description-field"
                        name="repo_description"
-                       value={this.props.description}
                        placeholder="Short description of this repository"/>
             </div>
             <div className="field">

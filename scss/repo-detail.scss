@@ -1,11 +1,11 @@
 @import "variables";
 
 .pagehead {
-  padding-bottom: 0;
   background-color: $page-head;
   border-bottom: 1px solid $border-header;
   margin-bottom: 60px;
   margin-top: -20px;
+  padding: 10px 0;
 }
 
 .repohead-details-container {
@@ -22,6 +22,7 @@
   font-size: 18px;
   line-height: 26px;
   color: $h1;
+  margin: 0;
 }
 
 .repohead .pagehead-actions {
@@ -29,6 +30,16 @@
   z-index: 31;
   float: right;
   margin: 0;
+  > li {
+    float: left;
+    margin: 0 10px 0 0;
+    font-size: 11px;
+    color: $header-bg;
+    list-style-type: none;
+    .octicon {
+      vertical-align: text-top;
+    }
+  }
 }
 
 .container {

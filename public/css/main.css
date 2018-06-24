@@ -92,6 +92,25 @@ a {
   font-size: 12px;
   line-height: 20px; }
 
+.btn-with-count {
+  float: left;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.social-count {
+  float: left;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #24292e;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid rgba(27, 31, 35, 0.2);
+  border-left: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
 .form-control, .form-select {
   min-height: 34px;
   padding: 6px 8px;
@@ -150,11 +169,11 @@ a {
   color: #666; }
 
 .pagehead {
-  padding-bottom: 0;
   background-color: #fafbfc;
   border-bottom: 1px solid #e1e4e8;
   margin-bottom: 60px;
-  margin-top: -20px; }
+  margin-top: -20px;
+  padding: 10px 0; }
 
 .repohead-details-container {
   width: 980px;
@@ -168,13 +187,22 @@ a {
   padding-left: 18px;
   font-size: 18px;
   line-height: 26px;
-  color: #586069; }
+  color: #586069;
+  margin: 0; }
 
 .repohead .pagehead-actions {
   position: relative;
   z-index: 31;
   float: right;
   margin: 0; }
+  .repohead .pagehead-actions > li {
+    float: left;
+    margin: 0 10px 0 0;
+    font-size: 11px;
+    color: #24292e;
+    list-style-type: none; }
+    .repohead .pagehead-actions > li .octicon {
+      vertical-align: text-top; }
 
 .container {
   width: 980px;

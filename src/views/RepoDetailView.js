@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import {ApolloConsumer} from 'react-apollo';
 import Octicon from 'react-octicon'
 import EditRepoDetailView from './EditRepoDetailView';
+import ToggleStarView from './ToggleStarView';
 
 export default class RepoDetailView extends React.Component {
     constructor(props) {
@@ -14,7 +15,11 @@ export default class RepoDetailView extends React.Component {
         this.query = gql`{
           viewer {
             repository(name: "${this.props.match.params.reponame}") {
-              description, nameWithOwner
+              description, nameWithOwner, id, stargazers(first:100) {
+                totalCount, nodes{
+                 isViewer
+                }
+              }
               object(expression: "master:") {
               ... on Tree{
                 entries{
@@ -39,11 +44,20 @@ export default class RepoDetailView extends React.Component {
     componentDidMount() {
         this.getRepoDetail(this.client, this.query).then((res) => {
             let repositoryInfo = res.data.viewer.repository;
+            let isSelfStarred = false;
+            repositoryInfo.stargazers.nodes.map((item) => {
+                if (item.isViewer) {
+                    isSelfStarred = true;
+                }
+            });
             this.setState({
                 detail: repositoryInfo.object ? repositoryInfo.object.entries : [{
                     name: '',
                     type: ''
                 }],
+                id: repositoryInfo.id,
+                starCount: repositoryInfo.stargazers.totalCount,
+                starStatus: isSelfStarred,
                 description: repositoryInfo.description,
                 nameWithOwner: repositoryInfo.nameWithOwner
             });
@@ -57,7 +71,11 @@ export default class RepoDetailView extends React.Component {
                     <div className='pagehead repohead'>
                         <div className='repohead-details-container clearfix'>
                             <ul className='pagehead-actions'>
-
+                                <li>
+                                    <ToggleStarView
+                                        count={this.state.starCount}
+                                        status={this.state.isSelfStarred}/>
+                                </li>
                             </ul>
                             <h1 className='public'>{this.state.nameWithOwner}</h1>
                         </div>
