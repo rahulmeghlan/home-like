@@ -6,7 +6,9 @@ export default class EditRepoDetailFormView extends React.Component {
             <div className="field">
                 <label htmlFor="repo_description">Description</label>
                 <input type="text" id="repo_description"
-                       className="form-control input-contrast repo-description-field" name="repo_description"
+                       className="form-control input-contrast repo-description-field"
+                       name="repo_description"
+                       value={this.props.description}
                        placeholder="Short description of this repository"/>
             </div>
             <div className="field">
@@ -15,7 +17,8 @@ export default class EditRepoDetailFormView extends React.Component {
                        name="repo_homepage" value="" placeholder="Website for this repository (optional)"/>
             </div>
             <button className="btn" type="submit">Save</button>
-            or <button type="button" className="btn-link js-details-target js-edit-repo-meta-toggle"
+            or <button type="button" className="btn-link"
+                       onClick={this.props.toggleEditForm}
                        aria-expanded="true" data-initial-state="true">Cancel</button>
         </form>
     }

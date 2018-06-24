@@ -29,7 +29,7 @@ export default class EditRepoDetailView extends React.Component {
                     Edit
                 </button>
             </div>
-            <EditRepoDetailFormView description={this.props.description}/>
+            <EditRepoDetailFormView description={this.props.description} toggleEditForm={this.toggleEditForm}/>
         </div>
     }
 }
