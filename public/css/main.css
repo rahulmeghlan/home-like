@@ -69,3 +69,29 @@ a {
   line-height: 24px;
   margin: 5px 0;
   color: #666; }
+
+.pagehead {
+  padding-bottom: 0;
+  background-color: #fafbfc;
+  border-bottom: 1px solid #e1e4e8; }
+
+.repohead-details-container {
+  margin-bottom: 20px;
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto; }
+
+.repohead h1 {
+  position: relative;
+  float: left;
+  max-width: 635px;
+  padding-left: 18px;
+  font-size: 18px;
+  line-height: 26px;
+  color: #586069; }
+
+.repohead .pagehead-actions {
+  position: relative;
+  z-index: 31;
+  float: right;
+  margin: 0; }

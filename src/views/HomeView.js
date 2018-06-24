@@ -28,7 +28,7 @@ class HomeView extends React.Component {
         }
 
         return (
-            <div>
+            <div className='container-lg clearfix'>
                 <div className='col-3 float-left'>
                     <UserProfileInfoView/>
                 </div>

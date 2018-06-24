@@ -18,7 +18,7 @@ class App extends Component {
         return (
             <ApolloProvider client={client}>
                 <Router>
-                    <div className='container-lg clearfix'>
+                    <div>
                         <Route exact path="/" component={HomeView}/>
                         <Switch>
                             <Route exact path="/:reponame" component={RepoDetailView}/>
