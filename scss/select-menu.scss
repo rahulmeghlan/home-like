@@ -132,3 +132,8 @@
   border-right: 0;
   border-left: 0;
 }
+
+.select-menu-item.selected .octicon-check {
+  color: inherit;
+  visibility: visible;
+}

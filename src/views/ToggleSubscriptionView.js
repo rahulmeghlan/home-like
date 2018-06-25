@@ -49,8 +49,7 @@ export default class ToggleSubscriptionView extends React.Component {
 
                         <div className="select-menu-list js-navigation-container" role="menu">
 
-                            <div className="select-menu-item js-navigation-item" role="menuitem" tabIndex="0"
-                                 aria-selected="false">
+                            <div className="select-menu-item" role="menuitem">
                                 <svg className="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16"
                                      version="1.1" width="12" height="16" aria-hidden="true">
                                     <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path>
@@ -60,12 +59,13 @@ export default class ToggleSubscriptionView extends React.Component {
                                            onChange={this.updateSubscription('unwatch')}/>
                                     <span className="select-menu-item-heading">Not watching</span>
                                     <span className="description">Be notified when participating or @mentioned.</span>
-                                    <span className="js-select-button-text hidden-select-button-text">
-                      <svg className="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                           aria-hidden="true"><path fillRule="evenodd"
-                                                    d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
-                      Watch
-                    </span>
+                                    <span className="hidden-select-button-text">
+                                      <svg className="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16"
+                                           height="16"
+                                           aria-hidden="true"><path fillRule="evenodd"
+                                                                    d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+                                      Watch
+                                    </span>
                                 </div>
                             </div>
 
@@ -81,17 +81,17 @@ export default class ToggleSubscriptionView extends React.Component {
                                            onChange={this.updateSubscription('watch')}/>
                                     <span className="select-menu-item-heading">Watching</span>
                                     <span className="description">Be notified of all conversations.</span>
-                                    <span className="js-select-button-text hidden-select-button-text">
-                                  <svg className="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16"
-                                       height="16"
-                                       aria-hidden="true"><path fillRule="evenodd"
-                                                                d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
-                                    Unwatch
-                                </span>
+                                    <span className="hidden-select-button-text">
+                                      <svg className="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16"
+                                           height="16"
+                                           aria-hidden="true"><path fillRule="evenodd"
+                                                                    d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+                                        Unwatch
+                                    </span>
                                 </div>
                             </div>
 
-                            <div className="select-menu-item" role="menuitem" tabIndex="0">
+                            <div className="select-menu-item selected" role="menuitem" tabIndex="0">
                                 <svg className="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16"
                                      version="1.1" width="12" height="16" aria-hidden="true">
                                     <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path>
@@ -101,14 +101,14 @@ export default class ToggleSubscriptionView extends React.Component {
                                            onChange={this.updateSubscription('ignore')}/>
                                     <span className="select-menu-item-heading">Ignoring</span>
                                     <span className="description">Never be notified.</span>
-                                    <span className="js-select-button-text hidden-select-button-text">
-                                  <svg className="octicon octicon-mute" viewBox="0 0 16 16" version="1.1" width="16"
-                                       height="16"
-                                       aria-hidden="true">
-                                      <path fillRule="evenodd"
-                                            d="M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z"></path></svg>
-                                    Stop ignoring
-                                </span>
+                                    <span className="hidden-select-button-text">
+                                      <svg className="octicon octicon-mute" viewBox="0 0 16 16" version="1.1" width="16"
+                                           height="16"
+                                           aria-hidden="true">
+                                          <path fillRule="evenodd"
+                                                d="M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z"></path></svg>
+                                        Stop ignoring
+                                    </span>
                                 </div>
                             </div>
 
