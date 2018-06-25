@@ -5,6 +5,7 @@ import Octicon from 'react-octicon'
 import constants from "./../constants";
 import EditRepoDetailView from './EditRepoDetailView';
 import ToggleStarView from './ToggleStarView';
+import ToggleSubscriptionView from "./ToggleSubscriptionView";
 
 const query = gql`query {
   user(login: ${constants.username}){
@@ -91,6 +92,9 @@ export default class RepoDetailView extends React.Component {
                         <div className='repohead-details-container clearfix'>
                             <ul className='pagehead-actions'>
                                 <li>
+                                    <ToggleSubscriptionView
+                                        repoId={this.state.id}/>
+                                </li><li>
                                     <ToggleStarView
                                         repoId={this.state.id}
                                         count={this.state.starCount}
