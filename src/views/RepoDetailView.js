@@ -2,8 +2,15 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {ApolloConsumer} from 'react-apollo';
 import Octicon from 'react-octicon'
+import constants from "./../constants";
 import EditRepoDetailView from './EditRepoDetailView';
 import ToggleStarView from './ToggleStarView';
+
+const query = gql`query {
+  user(login: ${constants.username}){
+    avatarUrl, name, login, id
+  }
+}`;
 
 export default class RepoDetailView extends React.Component {
     constructor(props) {
@@ -41,6 +48,12 @@ export default class RepoDetailView extends React.Component {
         });
     }
 
+    async getUserId(client) {
+        return await client.query({
+            query: query
+        })
+    }
+
     componentDidMount() {
         this.getRepoDetail(this.client, this.query).then((res) => {
             let repositoryInfo = res.data.viewer.repository;
@@ -61,7 +74,13 @@ export default class RepoDetailView extends React.Component {
                 description: repositoryInfo.description,
                 nameWithOwner: repositoryInfo.nameWithOwner
             });
-        })
+        });
+
+        if (!window.sessionStorage.userId) {
+            this.getUserId(this.client).then((res) => {
+                window.sessionStorage.userId = res.data.user.id;
+            });
+        }
     }
 
     render() {
@@ -73,6 +92,7 @@ export default class RepoDetailView extends React.Component {
                             <ul className='pagehead-actions'>
                                 <li>
                                     <ToggleStarView
+                                        repoId={this.state.id}
                                         count={this.state.starCount}
                                         status={this.state.starStatus}/>
                                 </li>
