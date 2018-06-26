@@ -4,14 +4,8 @@ import ApolloClient from 'apollo-boost';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomeView from './views/HomeView';
 import RepoDetailView from './views/RepoDetailView';
-import constants from './constants';
+import client from './ApolloClient';
 
-const client = new ApolloClient({
-    uri: 'https://api.github.com/graphql',
-    headers: {
-        Authorization: 'bearer ' + constants.token
-    }
-});
 
 class App extends Component {
     render() {

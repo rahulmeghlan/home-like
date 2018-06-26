@@ -1,6 +1,6 @@
 import React from 'react';
-import {ApolloConsumer} from 'react-apollo';
 import gql from "graphql-tag";
+import client from './../ApolloClient';
 
 export default class ToggleStarView extends React.Component {
     constructor(props) {
@@ -19,13 +19,8 @@ export default class ToggleStarView extends React.Component {
         }
     }
 
-
-    setClient(client) {
-        this.client = client;
-    }
-
     toggleStar() {
-        this.updateStar(this.client).then((res) => {
+        this.updateStar().then((res) => {
             this.setState(prevState => ({
                 status: !prevState.status,
                 count: !prevState.status ? this.state.count + 1 : this.state.count - 1
@@ -34,7 +29,7 @@ export default class ToggleStarView extends React.Component {
         });
     }
 
-    async updateStar(client) {
+    async updateStar() {
         const methodName = this.state.status ? 'removeStar' : 'addStar';
         const query = gql`mutation{
               ${methodName}(input: {starrableId: "${this.props.repoId}", 
@@ -51,24 +46,19 @@ export default class ToggleStarView extends React.Component {
         if (typeof this.state.count === 'undefined') {
             return <div></div>
         } else {
-            return <ApolloConsumer>
-                {client => (
-                    <div className='starring-container'>
-                        {this.setClient(client)}
-                        <button type="submit" onClick={this.toggleStar} className="btn btn-sm btn-with-count">
-                            <svg className='octicon' viewBox="0 0 14 16" version="1.1"
-                                 width="14" height="16" aria-hidden="true">
-                                <path fillRule="evenodd"
-                                      d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path>
-                            </svg>
-                            {this.state.status ? 'Unstar' : 'Star'}
-                        </button>
-                        <a className="social-count">
-                            {this.state.count}
-                        </a>
-                    </div>
-                )}
-            </ApolloConsumer>
+            return <div className='starring-container'>
+                <button type="submit" onClick={this.toggleStar} className="btn btn-sm btn-with-count">
+                    <svg className='octicon' viewBox="0 0 14 16" version="1.1"
+                         width="14" height="16" aria-hidden="true">
+                        <path fillRule="evenodd"
+                              d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path>
+                    </svg>
+                    {this.state.status ? 'Unstar' : 'Star'}
+                </button>
+                <a className="social-count">
+                    {this.state.count}
+                </a>
+            </div>
         }
     }
 }
