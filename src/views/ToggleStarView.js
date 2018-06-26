@@ -49,7 +49,7 @@ export default class ToggleStarView extends React.Component {
 
     render() {
         if (typeof this.state.count === 'undefined') {
-            return <div>Loading...</div>
+            return <div></div>
         } else {
             return <ApolloConsumer>
                 {client => (

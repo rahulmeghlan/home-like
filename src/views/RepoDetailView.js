@@ -23,7 +23,11 @@ export default class RepoDetailView extends React.Component {
         this.query = gql`{
           viewer {
             repository(name: "${this.props.match.params.reponame}") {
-              description, nameWithOwner, id, stargazers(first:100) {
+              description, nameWithOwner, id, viewerSubscription,
+              watchers{
+                totalCount
+              },
+              stargazers(first:100) {
                 totalCount, nodes{
                  isViewer
                 }
@@ -72,8 +76,10 @@ export default class RepoDetailView extends React.Component {
                 id: repositoryInfo.id,
                 starCount: repositoryInfo.stargazers.totalCount,
                 starStatus: isSelfStarred,
+                watcherCount: repositoryInfo.watchers.totalCount,
                 description: repositoryInfo.description,
-                nameWithOwner: repositoryInfo.nameWithOwner
+                nameWithOwner: repositoryInfo.nameWithOwner,
+                viewerSubscription: repositoryInfo.viewerSubscription
             });
         });
 
@@ -93,8 +99,11 @@ export default class RepoDetailView extends React.Component {
                             <ul className='pagehead-actions'>
                                 <li>
                                     <ToggleSubscriptionView
+                                        watcherCount={this.state.watcherCount}
+                                        viewerSubscription={this.state.viewerSubscription}
                                         repoId={this.state.id}/>
-                                </li><li>
+                                </li>
+                                <li>
                                     <ToggleStarView
                                         repoId={this.state.id}
                                         count={this.state.starCount}
