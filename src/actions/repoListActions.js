@@ -6,7 +6,7 @@ export const fetchRepoList = () => dispatch => {
     client.query({
         query: gql`{
           viewer {
-            repositories(first: 30) {
+            repositories(first: 100) {
               pageInfo {
                 hasNextPage
                 endCursor
