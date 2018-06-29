@@ -11,9 +11,9 @@ export const fetchUserInfo = () => dispatch => {
           }
         }`
     })
-        .then(repos => dispatch({
+        .then(userInfo => dispatch({
             type: FETCH_USER_INFO,
-            payload: repos
+            payload: userInfo
         }));
 };
 
