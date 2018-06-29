@@ -1,0 +1,3 @@
+export const FETCH_REPO_LIST = 'FETCH_REPO_LIST';
+export const FETCH_USER_INFO = 'FETCH_USER_INFO';
+export const FETCH_REPO_DETAIL = 'FETCH_REPO_DETAIL';

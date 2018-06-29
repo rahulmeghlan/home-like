@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import HomeView from './views/HomeView';
 import RepoDetailView from './views/RepoDetailView';
 import client from './ApolloClient';
-
+import store from './store';
 
 class App extends Component {
     render() {

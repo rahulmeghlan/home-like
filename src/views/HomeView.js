@@ -1,10 +1,10 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import {graphql} from 'react-apollo';
 import PinnedRepoView from './PinnedRepoView'
 import UserProfileInfoView from './UserProfileInfoView';
+import {connect} from 'react-redux';
+import {fetchRepoList} from './../actions/repoListActions';
 
-const query = gql`{
+/*const query = gql`{
   viewer {
     repositories(first: 30) {
       pageInfo {
@@ -18,14 +18,19 @@ const query = gql`{
       }
     }
   }
-}`;
+}`;*/
 
 class HomeView extends React.Component {
+    componentWillMount() {
+        this.props.fetchRepoList();
+    }
+
     render() {
-        let {data} = this.props;
+        console.log(this.props);
+        /*let {data} = this.props;
         if (data.loading) {
             return <div>Loading...</div>
-        }
+        }*/
 
         return (
             <div className='container-lg clearfix'>
@@ -34,9 +39,9 @@ class HomeView extends React.Component {
                 </div>
                 <div className='col-9 float-left'>
                     <div className='pinned-repos-list'>
-                        {data.viewer.repositories.edges.map((item, index) => (
+                        {/*{data.viewer.repositories.edges.map((item, index) => (
                             <PinnedRepoView key={index} info={item.node}/>
-                        ))}
+                        ))}*/}
                     </div>
                 </div>
             </div>
@@ -44,5 +49,8 @@ class HomeView extends React.Component {
     }
 }
 
-HomeView = graphql(query)(HomeView);
-export default HomeView;
+const mapStateToProps = state => ({
+    repoList: state.repoList.repos
+});
+
+export default connect(mapStateToProps, {fetchRepoList})(HomeView)
