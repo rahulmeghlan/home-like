@@ -1,17 +1,11 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import {graphql} from 'react-apollo';
-import constants from './../constants';
-
-const query = gql`query {
-  user(login: ${constants.username}){
-    avatarUrl, name, login, id
-  }
-}`;
+import {fetchUserInfo} from "../actions/userInfoActions";
+import {connect} from "react-redux";
 
 class UserProfileInfoView extends React.Component {
 
     render() {
+        console.log(this.props);
         let {data} = this.props;
         if (data.loading) {
             return <div>Loading...</div>
@@ -26,5 +20,8 @@ class UserProfileInfoView extends React.Component {
     }
 }
 
-UserProfileInfoView = graphql(query)(UserProfileInfoView);
-export default UserProfileInfoView;
+const mapStateToProps = state => ({
+    userInfo: state.userInfo.details
+});
+
+export default connect(mapStateToProps, {fetchUserInfo})(UserProfileInfoView)
