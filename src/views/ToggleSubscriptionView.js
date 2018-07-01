@@ -105,9 +105,7 @@ export default class ToggleSubscriptionView extends React.Component {
 
                         <div
                             className={this.state.viewerSubscription === "SUBSCRIBED" ? "select-menu-item selected" : "select-menu-item"}
-                            role="menuitem"
-                            onClick={this.updateSubscription.bind(this, "SUBSCRIBED")}
-                            aria-selected="false">
+                            onClick={this.updateSubscription.bind(this, "SUBSCRIBED")}>
                             <svg className="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16"
                                  version="1.1" width="12" height="16" aria-hidden="true">
                                 <path fillRule="evenodd"

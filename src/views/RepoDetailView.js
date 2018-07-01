@@ -63,6 +63,7 @@ export default class RepoDetailView extends React.Component {
                 if (item.isViewer) {
                     isSelfStarred = true;
                 }
+                return item;
             });
             this.setState({
                 detail: repositoryInfo.object ? repositoryInfo.object.entries : [{
